@@ -1,11 +1,12 @@
+import os
 import datetime
 import tweepy
 
-# === API Anahtarlarını BURAYA gir ===
-api_key = "API_KEY"
-api_secret = "API_SECRET"
-access_token = "ACCESS_TOKEN"
-access_token_secret = "ACCESS_TOKEN_SECRET"
+# Secrets'ları ortam değişkenlerinden alıyoruz, güvenli olur
+api_key = os.environ['API_KEY']
+api_secret = os.environ['API_SECRET']
+access_token = os.environ['ACCESS_TOKEN']
+access_token_secret = os.environ['ACCESS_TOKEN_SECRET']
 
 # Twitter'a bağlan
 auth = tweepy.OAuth1UserHandler(api_key, api_secret, access_token, access_token_secret)
@@ -24,3 +25,4 @@ else:
 
 # Tweet at
 api.update_status(tweet)
+
